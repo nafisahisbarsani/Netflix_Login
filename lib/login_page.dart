@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_login/register_page.dart';
+import 'package:netflix_login/widgets/my_button_login.dart';
+import 'package:netflix_login/widgets/my_colors.dart';
+import 'package:netflix_login/widgets/my_text_login.dart';
+import 'package:netflix_login/widgets/my_text_field_netflix.dart';
 
 
 class login extends StatefulWidget {
@@ -42,76 +46,15 @@ class _loginState extends State<login> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(height: 20),
-              Container(
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.grey[800],
-                  borderRadius: BorderRadius.circular(7),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Email atau Nomor Ponsel",
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 18),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-                  ),
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+              MyTextField(hintText: "Email atau Nomor Ponsel", isObsecure: false),
               SizedBox(height: 5.5),
-              Container(
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.grey[800],
-                  borderRadius: BorderRadius.circular(7),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Masukan Sandi",
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 18),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-                  ),
-                  style: TextStyle(color: Colors.white),
-                  obscureText: true,
-                ),
-              ),
+          MyTextField(hintText: "Masukan Sandi", isObsecure: true),
               SizedBox(height: 8.5),
-              Container(
-                margin: EdgeInsets.all(8),
-                child: SizedBox(
-                  height: 53,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const Text(
-                      "Masuk",
-                      style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ),
+           MyButton(text: "Masuk", onPressed: (){}),
               SizedBox(height: 15),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10),
-                child: const Text(
-                  "ATAU",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                child: MyText(text: "ATAU", color: textColor, fontSize: 18, fontWeight: FontWeight.bold, textAlign: TextAlign.center)
               ),
               Container(
                 margin: EdgeInsets.all(10),
@@ -121,25 +64,14 @@ class _loginState extends State<login> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 7),
-                  child: Text(
-                    "Gunakan Kode Masuk",
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 7),
+                  child: MyText(text: 'Gunakan Kode Masuk', color: textColor, fontSize: 17, fontWeight: FontWeight.bold,textAlign: TextAlign.center,)
+                  )
                 ),
-              ),
               SizedBox(height: 10),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10),
-                child: const Text(
-                  "Lupa sandi?",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                child: MyText(text: "Lupa Sandi?", color: textColor, fontSize: 18, fontWeight: FontWeight.bold, textAlign: TextAlign.center)
               ),
               ElevatedButton(
                 onPressed: () {
@@ -149,8 +81,8 @@ class _loginState extends State<login> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent, // Make the button transparent
-                  elevation: 0, // Remove shadow
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
                 ),
                 child: const Text(
                   "Ingin mencoba Netflix? Daftar Sekarang",
